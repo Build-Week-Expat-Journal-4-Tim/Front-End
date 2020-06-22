@@ -9,3 +9,4 @@ export const axiosWithAuth = () => {
         baseURL: ''
     })
 }
+export default axiosWithAuth
