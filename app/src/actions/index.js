@@ -40,7 +40,7 @@ export const handleDeleteStory = (id) => dispatch => {
         .delete(`url/api/${id}`)
             .then(res => {
                 console.log(res)
-                dispatch({type:DELETE_STORY_THEN, payload: })
+                dispatch({type:DELETE_STORY_THEN, payload:res })
             })
             .catch(err => console.log(err))
 }
