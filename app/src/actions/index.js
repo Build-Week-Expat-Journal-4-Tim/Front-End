@@ -29,7 +29,7 @@ export const handleUpdateStory = (id) => dispatch => {
         .put(`url/api/${id}`)
             .then(res => {
                 console.log(res)
-                dispatch({type:UPDATE_STORY_THEN, payload: })
+                dispatch({type:UPDATE_STORY_THEN, payload:res })
             })
             .catch(err => console.log(err))
 }
