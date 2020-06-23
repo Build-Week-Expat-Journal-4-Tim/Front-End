@@ -56,3 +56,4 @@ export const openModal = (id) => dispatch => {
 
 export const closeModal = () => dispatch => {
     dispatch({type: CLOSE_MODAL})
+}

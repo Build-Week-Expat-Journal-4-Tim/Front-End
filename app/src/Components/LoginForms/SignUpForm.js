@@ -1,5 +1,5 @@
 // Sign up Form
-import React from "react";
+import React, {useState} from "react";
 import { useForm, Controller } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,17 +20,51 @@ const useStyles = makeStyles({
   },
 });
 
+
+
 export default function SignUpForm() {
   const classes = useStyles();
 
   const defaultValues = {
     name: "",
+    email:"",
     password: "",
   };
+
+  const [signUp, setSignUp] = useState(defaultValues) 
+
+//equals anonymous function
+const onHandleChange = (e) => {
+  const name = e.target.name
+  const value = e.target.value
+
+  setSignUp({[name]:value})
+}
+
   const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = (data) => { 
     console.log(data);
   };
+
+  const handleSignUp = e =>{
+    e.preventDefault()
+    
+    const newUser = {
+      name: signUp.name,
+      password: signUp.password,
+      email: signUp.email,
+   
+    }
+    
+    axiosWithAuth('/api/auth/register',newUser)
+
+    .then(
+        res=>{console.log(res)}
+    )
+
+    .catch(err => console.log(err))
+    
+    }
 
   return (
     <div className="sign-up-border">
@@ -40,6 +74,8 @@ export default function SignUpForm() {
 
 
       <input
+        value={signUp.name}
+        onChange={onHandleChange}
           type="text"
           placeholder="Full Name"
           name="name"
@@ -51,6 +87,8 @@ export default function SignUpForm() {
            {errors.name && <p>{errors.name.message}</p>}
 
         <input
+         onChange={onHandleChange}
+         value={signUp.email}
           type="text"
           placeholder="Email"
           name="email"
@@ -66,6 +104,8 @@ export default function SignUpForm() {
 
         {errors.email && <p>{errors.email.message}</p>}
         <input
+         onChange={onHandleChange}
+        value={signUp.password}
           type="password"
           placeholder="Password"
           name="password"
