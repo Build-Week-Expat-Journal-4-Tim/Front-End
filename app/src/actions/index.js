@@ -1,46 +1,46 @@
-import axiosWithAuth  from '../utils/axiosWithAuth'
+// import axiosWithAuth  from '../utils/axiosWithAuth'
 
-export const CREATE_STORY = 'CREATE_STORY'
-export const GET_STORIES = 'GET_STORIES'
-export const UPDATE_STORY = 'UPDATE_STORY'
-export const DELETE_STORY = 'DELETE_STORY'
+// export const CREATE_STORY = 'CREATE_STORY'
+// export const GET_STORIES = 'GET_STORIES'
+// export const UPDATE_STORY = 'UPDATE_STORY'
+// export const DELETE_STORY = 'DELETE_STORY'
 
-export const CREATE_STORY_THEN = 'CREATE_STORY_THEN'
-export const UPDATE_STORY_THEN = 'UPDATE_STORY_THEN'
-export const DELETE_STORY_THEN = 'DELETE_STORY_THEN'
+// export const CREATE_STORY_THEN = 'CREATE_STORY_THEN'
+// export const UPDATE_STORY_THEN = 'UPDATE_STORY_THEN'
+// export const DELETE_STORY_THEN = 'DELETE_STORY_THEN'
 
 
-//needs to be finished
-export const handleCreateStory = (newStory) => dispatch => {
-    dispatch({type: CREATE_STORY})
-    axiosWithAuth()
-        .post('url', newStory)
-            .then(res => {
-                console.log(res)
-                dispatch({type:CREATE_STORY_THEN, payload: newStory})
-            })
-            .catch(err => console.log(err))
-}
+// //needs to be finished
+// export const handleCreateStory = (newStory) => dispatch => {
+//     dispatch({type: CREATE_STORY})
+//     axiosWithAuth()
+//         .post('url', newStory)
+//             .then(res => {
+//                 console.log(res)
+//                 dispatch({type:CREATE_STORY_THEN, payload: newStory})
+//             })
+//             .catch(err => console.log(err))
+// }
 
-//needs to be finished
-export const handleUpdateStory = (id) => dispatch => {
-    // dispatch({type: UPDATE_STORY})
-    axiosWithAuth()
-        .put(`url/api/${id}`)
-            .then(res => {
-                console.log(res)
-                dispatch({type:UPDATE_STORY_THEN, payload: })
-            })
-            .catch(err => console.log(err))
-}
+// //needs to be finished
+// export const handleUpdateStory = (id) => dispatch => {
+//     // dispatch({type: UPDATE_STORY})
+//     axiosWithAuth()
+//         .put(`url/api/${id}`)
+//             .then(res => {
+//                 console.log(res)
+//                 dispatch({type:UPDATE_STORY_THEN, payload: })
+//             })
+//             .catch(err => console.log(err))
+// }
 
-export const handleDeleteStory = (id) => dispatch => {
-    // dispatch({type: UPDATE_STORY})
-    axiosWithAuth()
-        .delete(`url/api/${id}`)
-            .then(res => {
-                console.log(res)
-                dispatch({type:DELETE_STORY_THEN, payload: })
-            })
-            .catch(err => console.log(err))
-}
+// export const handleDeleteStory = (id) => dispatch => {
+//     // dispatch({type: UPDATE_STORY})
+//     axiosWithAuth()
+//         .delete(`url/api/${id}`)
+//             .then(res => {
+//                 console.log(res)
+//                 dispatch({type:DELETE_STORY_THEN, payload: })
+//             })
+//             .catch(err => console.log(err))
+// }
