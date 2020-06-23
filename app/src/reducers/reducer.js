@@ -1,8 +1,29 @@
-import { CREATE_STORY, CREATE_STORY_THEN, UPDATE_STORY_THEN, DELETE_STORY_THEN } from "../actions"
+import { CREATE_STORY, CREATE_STORY_THEN, UPDATE_STORY_THEN, DELETE_STORY_THEN, OPEN_MODAL, CLOSE_MODAL } from "../actions"
 
 const initialState= {
-    stories: [],
+    stories: [{
+        id:1,
+        title: 'some title',
+        storyText: 'some text',
+        location: 'USA',
+        image: 'https://picsum.photos/200'
+    },
+    {
+        id:2,
+        title: 'some title2',
+        storyText: 'some text',
+        location: 'USA',
+        image: 'https://picsum.photos/200'
+    },
+    {
+        id:3,
+        title: 'some title3',
+        storyText: 'some text',
+        location: 'USA',
+        image: 'https://picsum.photos/200'
+    }],
     isFetchingData: false,
+    openModal: false
 
 }
 
@@ -29,8 +50,22 @@ export const reducer = ( state = initialState, action ) => {
                     ...state,
                     stories:[]
                 }
+            case OPEN_MODAL:
+               
+                return{
+                    ...state,
+                    openModal: true
+                }
+                case CLOSE_MODAL:
+                    
+                    return{
+                        ...state,
+                        openModal: false
+                    }
             default:
                 return state
 
     }
 }
+
+// look up aria

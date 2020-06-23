@@ -4,6 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +28,7 @@ export default function SignUpForm() {
     password: "",
   };
   const { register, handleSubmit, errors, reset } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data) => { 
     console.log(data);
   };
 

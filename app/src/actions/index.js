@@ -8,7 +8,8 @@ export const DELETE_STORY = 'DELETE_STORY'
 export const CREATE_STORY_THEN = 'CREATE_STORY_THEN'
 export const UPDATE_STORY_THEN = 'UPDATE_STORY_THEN'
 export const DELETE_STORY_THEN = 'DELETE_STORY_THEN'
-
+export const OPEN_MODAL = 'OPEN_MODAL'
+export const CLOSE_MODAL = 'CLOSE_MODAL'
 
 //needs to be finished
 export const handleCreateStory = (newStory) => dispatch => {
@@ -43,4 +44,13 @@ export const handleDeleteStory = (id) => dispatch => {
                 dispatch({type:DELETE_STORY_THEN, payload:res })
             })
             .catch(err => console.log(err))
+}
+
+export const openModal = () => dispatch => {
+       dispatch({type: OPEN_MODAL})
+   
+}
+
+export const closeModal = () => dispatch => {
+    dispatch({type: CLOSE_MODAL})
 }
