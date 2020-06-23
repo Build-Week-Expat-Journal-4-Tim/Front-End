@@ -1,5 +1,5 @@
 // Sign up Form
-import {React, useState} from "react";
+import React, {useState} from "react";
 import { useForm, Controller } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,14 +20,15 @@ const useStyles = makeStyles({
 });
 
 export default function LoginForm() {
+    const defaultValues = {
+        email: "",
+        password: "",
+      };
   const classes = useStyles();
 
   const [login, setLogin] = useState(defaultValues) 
 
-  const defaultValues = {
-    email: "",
-    password: "",
-  };
+
 
   const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = (data) => {
