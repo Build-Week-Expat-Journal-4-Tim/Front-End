@@ -1,4 +1,5 @@
 import axiosWithAuth  from '../utils/axiosWithAuth'
+import axios from 'axios'
 
 export const CREATE_STORY = 'CREATE_STORY'
 export const GET_STORIES = 'GET_STORIES'
@@ -35,6 +36,7 @@ export const handleUpdateStory = (id) => dispatch => {
             .catch(err => console.log(err))
 }
 
+
 export const handleDeleteStory = (id) => dispatch => {
     // dispatch({type: UPDATE_STORY})
     axiosWithAuth()
@@ -54,4 +56,3 @@ export const openModal = (id) => dispatch => {
 
 export const closeModal = () => dispatch => {
     dispatch({type: CLOSE_MODAL})
-}
