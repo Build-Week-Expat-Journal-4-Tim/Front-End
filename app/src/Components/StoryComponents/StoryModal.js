@@ -18,10 +18,12 @@ function getModalStyle() {
   };
 }
 
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
     width: 400,
+    height:400,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -29,40 +31,49 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const  StoryModal = (props) => {
+export const  StoryModal = ({modalState, closeModal, stories,storyid}) => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
 
-
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
+return(
+    <div>
+        {stories.map(story => {
+            if(story.id === storyid){
+                return(
+            
+                        <Modal
+        // key={story.id}
+        open={modalState}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        onClose={() => closeModal()}
+      >
+        <div style={modalStyle} className={classes.paper}>
+        <h2>{console.log(modalState)}</h2>
+      <h2 id="simple-modal-title">{story.title}</h2>
       <p id="simple-modal-description">
         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
       </p>
-      <StoryModal />
+      {/* <StoryModal /> */}
     </div>
-  );
-
-
-  return (
-    <div>
-      
-      <Modal
-        open={props.openModal}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        onClose={() => props.closeModal()}
-      >
-        {body}
       </Modal>
+
+                )
+            }
+        })}
     </div>
-  );
+)
+ 
+
+
 }
+
 const mapStateToProps = state => {
     return{
-        openModal: state.openModal
+        modalState: state.modalState,
+        stories: state.stories,
+        storyid: state.storyid
     }
     
 }

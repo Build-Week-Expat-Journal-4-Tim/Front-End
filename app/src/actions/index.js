@@ -46,8 +46,9 @@ export const handleDeleteStory = (id) => dispatch => {
             .catch(err => console.log(err))
 }
 
-export const openModal = () => dispatch => {
-       dispatch({type: OPEN_MODAL})
+export const openModal = (id) => dispatch => {
+    console.log('openModal happening', {id})
+       dispatch({type: OPEN_MODAL, payload:id})
    
 }
 

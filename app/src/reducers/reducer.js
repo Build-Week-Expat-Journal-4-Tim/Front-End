@@ -23,7 +23,8 @@ const initialState= {
         image: 'https://picsum.photos/200'
     }],
     isFetchingData: false,
-    openModal: false
+    modalState: false,
+    storyid: null
 
 }
 
@@ -51,16 +52,19 @@ export const reducer = ( state = initialState, action ) => {
                     stories:[]
                 }
             case OPEN_MODAL:
-               
+                console.log('open modal case happening', )
                 return{
+                    
                     ...state,
-                    openModal: true
+                    modalState: true,
+                    storyid:action.payload
                 }
+                
                 case CLOSE_MODAL:
                     
                     return{
                         ...state,
-                        openModal: false
+                        modalState: false
                     }
             default:
                 return state

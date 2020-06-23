@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux'
 import { openModal } from '../../actions'
+import { StoryModal } from './StoryModal';
 
 const useStyles = makeStyles({
   root: {
@@ -16,36 +17,42 @@ const useStyles = makeStyles({
   },
 });
 
-export const StoryCard = ({story, openModal}) => {
+export const StoryCard = ({story, openModal,modalState}) => {
   const classes = useStyles();
+// console.log(story)
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="story-image"
-          height="200"
-          image={story.image}
-          title="story-image"
-          onClick={() => { 
-            openModal()}}
-        />
-    
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {story.title}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      <div>
      
-    </Card>
+        <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            alt="story-image"
+            height="200"
+            image={story.image}
+            title="story-image"
+            onClick={() => { 
+              openModal(story.id)}}
+          />
+      
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {story.title}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+       
+      </Card>
+    </div>
+  
   );
 }
 
+
 const mapStateToProps = state => {
     return{
-
+        modalState: state.modalState,
     }
     
 }
