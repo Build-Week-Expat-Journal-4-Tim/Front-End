@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import SignUpForm from './Components/LoginForms/SignUpForm'
 import Login from './Components/LoginForms/Login';
 import Nav from "./nav"
@@ -13,9 +14,11 @@ import {
 } from "react-router-dom";
 
 
+
 function App() {
 
   return (
+
 
 <Router>
       <div>
@@ -42,6 +45,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+
   );
 
 }

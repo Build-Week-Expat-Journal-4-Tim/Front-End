@@ -9,7 +9,8 @@ export const DELETE_STORY = 'DELETE_STORY'
 export const CREATE_STORY_THEN = 'CREATE_STORY_THEN'
 export const UPDATE_STORY_THEN = 'UPDATE_STORY_THEN'
 export const DELETE_STORY_THEN = 'DELETE_STORY_THEN'
-
+export const OPEN_MODAL = 'OPEN_MODAL'
+export const CLOSE_MODAL = 'CLOSE_MODAL'
 
 //needs to be finished
 export const handleCreateStory = (newStory) => dispatch => {
@@ -35,20 +36,23 @@ export const handleUpdateStory = (id) => dispatch => {
             .catch(err => console.log(err))
 }
 
-// export const handleDeleteStory = (id) => dispatch => {
-//     // dispatch({type: UPDATE_STORY})
-//     axiosWithAuth()
-//                 dispatch({type:DELETE_STORY_THEN, payload:res })
-//             })
-//             .catch(err => console.log(err))
-// }
 
-export const handleNewUser = () =>{
-
-    axios.post('http://Google.com')
-    .then(res=>{
-        console.log(res)
-    })
-
-    .catch(err => console.log(err))
+export const handleDeleteStory = (id) => dispatch => {
+    // dispatch({type: UPDATE_STORY})
+    axiosWithAuth()
+        .delete(`url/api/${id}`)
+            .then(res => {
+                console.log(res)
+                dispatch({type:DELETE_STORY_THEN, payload:res })
+            })
+            .catch(err => console.log(err))
 }
+
+export const openModal = (id) => dispatch => {
+    console.log('openModal happening', {id})
+       dispatch({type: OPEN_MODAL, payload:id})
+   
+}
+
+export const closeModal = () => dispatch => {
+    dispatch({type: CLOSE_MODAL})
