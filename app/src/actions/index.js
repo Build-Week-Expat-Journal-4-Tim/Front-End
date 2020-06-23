@@ -1,4 +1,5 @@
 import axiosWithAuth  from '../utils/axiosWithAuth'
+import axios from 'axios'
 
 export const CREATE_STORY = 'CREATE_STORY'
 export const GET_STORIES = 'GET_STORIES'
@@ -34,13 +35,20 @@ export const handleUpdateStory = (id) => dispatch => {
             .catch(err => console.log(err))
 }
 
-export const handleDeleteStory = (id) => dispatch => {
-    // dispatch({type: UPDATE_STORY})
-    axiosWithAuth()
-        .delete(`url/api/${id}`)
-            .then(res => {
-                console.log(res)
-                dispatch({type:DELETE_STORY_THEN, payload:res })
-            })
-            .catch(err => console.log(err))
+// export const handleDeleteStory = (id) => dispatch => {
+//     // dispatch({type: UPDATE_STORY})
+//     axiosWithAuth()
+//                 dispatch({type:DELETE_STORY_THEN, payload:res })
+//             })
+//             .catch(err => console.log(err))
+// }
+
+export const handleNewUser = () =>{
+
+    axios.post('http://Google.com')
+    .then(res=>{
+        console.log(res)
+    })
+
+    .catch(err => console.log(err))
 }
