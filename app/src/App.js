@@ -4,7 +4,7 @@ import './App.css';
 
 import SignUpForm from './Components/LoginForms/SignUpForm'
 import Login from './Components/LoginForms/Login';
-import Nav from "./nav"
+import Nav from "./Components/Home/Navigation"
 import {
 
   BrowserRouter as Router,
@@ -12,10 +12,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import PrivateRoute from './utils/PrivateRoute';
 
 
 
-function App() {
+function App ()  {
 
   return (
 
@@ -30,10 +31,9 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
+          <PrivateRoute exact path="/dashboard" component={Dashboard}>
          
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
    
             <Login/>
@@ -58,4 +58,4 @@ function Dashboard() {
 }
 
 
-export default App;
+export default App

@@ -44,55 +44,55 @@ export default function LoginForm() {
   }
 
   return (
-      
     <div className="login-up-border">
-      <h2>Login Form</h2>
+    <h2>Login Form</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
 
 
-        <input
-        value={login.email}
-          type="text"
-          placeholder="Email"
-          name="email"
-          ref={register({
-            required: "Email Required",
-            minLength: { value: 1, message: "Email too short" },
-          })}
-        />
-        
+      <input
+      value={login.email}
+        type="text"
+        placeholder="Email"
+        name="email"
+        ref={register({
+          required: "Email Required",
+          minLength: { value: 1, message: "Email too short" },
+        })}
+      />
+      
 
-        {errors.email && <p>{errors.email.message}</p>}
-        <input
-         value={login.password}
-          type="password"
-          placeholder="Password"
-          name="password"
-          ref={register({
-            required: "Password Required",
-            minLength: { value: 8, message: "Password too Short" },
-          })}
-        />
-        {errors.password && <p>{errors.password.message}</p>}
+      {errors.email && <p>{errors.email.message}</p>}
+      <input
+       value={login.password}
+        type="password"
+        placeholder="Password"
+        name="password"
+        ref={register({
+          required: "Password Required",
+          minLength: { value: 8, message: "Password too Short" },
+        })}
+      />
+      {errors.password && <p>{errors.password.message}</p>}
 
-        <Button
-        
-          type="submit"
-          className={classes.root}
-          variant="contained"
-          color="primary"
-        >
-          Submit
-        </Button>
+      <Button
+      
+        type="submit"
+        className={classes.root}
+        variant="contained"
+        color="primary"
+      >
+        Submit
+      </Button>
 
-        {/* <input type="submit"
-        //   onClick={(event) => {
-        //       event.preventDefault()
-        //     reset(defaultValues);
-        //   }}
-          /> */}
-      </form>
-    </div>
-  );
+      {/* <input type="submit"
+      //   onClick={(event) => {
+      //       event.preventDefault()
+      //     reset(defaultValues);
+      //   }}
+        /> */}
+    </form>
+  </div>
+    
+  )
 }
