@@ -1,5 +1,5 @@
 // Sign up Form
-import {React, useState} from "react";
+import React, {useState} from "react";
 import { useForm, Controller } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,14 +20,15 @@ const useStyles = makeStyles({
 });
 
 export default function LoginForm() {
+    const defaultValues = {
+        email: "",
+        password: "",
+      };
   const classes = useStyles();
 
   const [login, setLogin] = useState(defaultValues) 
 
-  const defaultValues = {
-    email: "",
-    password: "",
-  };
+
 
   const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = (data) => {
@@ -43,55 +44,55 @@ export default function LoginForm() {
   }
 
   return (
-      
     <div className="login-up-border">
-      <h2>Login Form</h2>
+    <h2>Login Form</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
 
 
-        <input
-        value={login.email}
-          type="text"
-          placeholder="Email"
-          name="email"
-          ref={register({
-            required: "Email Required",
-            minLength: { value: 1, message: "Email too short" },
-          })}
-        />
-        
+      <input
+      value={login.email}
+        type="text"
+        placeholder="Email"
+        name="email"
+        ref={register({
+          required: "Email Required",
+          minLength: { value: 1, message: "Email too short" },
+        })}
+      />
+      
 
-        {errors.email && <p>{errors.email.message}</p>}
-        <input
-         value={login.password}
-          type="password"
-          placeholder="Password"
-          name="password"
-          ref={register({
-            required: "Password Required",
-            minLength: { value: 8, message: "Password too Short" },
-          })}
-        />
-        {errors.password && <p>{errors.password.message}</p>}
+      {errors.email && <p>{errors.email.message}</p>}
+      <input
+       value={login.password}
+        type="password"
+        placeholder="Password"
+        name="password"
+        ref={register({
+          required: "Password Required",
+          minLength: { value: 8, message: "Password too Short" },
+        })}
+      />
+      {errors.password && <p>{errors.password.message}</p>}
 
-        <Button
-        
-          type="submit"
-          className={classes.root}
-          variant="contained"
-          color="primary"
-        >
-          Submit
-        </Button>
+      <Button
+      
+        type="submit"
+        className={classes.root}
+        variant="contained"
+        color="primary"
+      >
+        Submit
+      </Button>
 
-        {/* <input type="submit"
-        //   onClick={(event) => {
-        //       event.preventDefault()
-        //     reset(defaultValues);
-        //   }}
-          /> */}
-      </form>
-    </div>
-  );
+      {/* <input type="submit"
+      //   onClick={(event) => {
+      //       event.preventDefault()
+      //     reset(defaultValues);
+      //   }}
+        /> */}
+    </form>
+  </div>
+    
+  )
 }
