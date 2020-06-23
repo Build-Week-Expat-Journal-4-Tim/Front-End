@@ -36,15 +36,33 @@ export default function SignUpForm() {
       <h2>Sign Up Form</h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
+
+
+      <input
+          type="text"
+          placeholder="Full Name"
+          name="name"
+          ref={register({
+            required: "Name Required",
+            minLength: { value: 1, message: "Name too short" },
+          })}
+        />
+           {errors.name && <p>{errors.name.message}</p>}
+
         <input
           type="text"
           placeholder="Email"
           name="email"
           ref={register({
             required: "Email Required",
-            minLength: { value: 16, message: "Email too short" },
+            minLength: { value: 1, message: "Email too short" },
           })}
         />
+        
+
+   
+
+
         {errors.email && <p>{errors.email.message}</p>}
         <input
           type="password"
@@ -58,6 +76,7 @@ export default function SignUpForm() {
         {errors.password && <p>{errors.password.message}</p>}
 
         <Button
+        
           type="submit"
           className={classes.root}
           variant="contained"
