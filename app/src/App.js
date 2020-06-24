@@ -13,6 +13,7 @@ import {
   Link
 } from "react-router-dom";
 import PrivateRoute from './utils/PrivateRoute';
+import Dashboard from './Components/Home/Dashboard';
 
 
 
@@ -31,6 +32,7 @@ function App ()  {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          
           <PrivateRoute exact path="/dashboard" component={Dashboard}>
          
           </PrivateRoute>
@@ -53,9 +55,9 @@ function App ()  {
 
 
 
-function Dashboard() {
-  return <h2>Dashboard</h2>;
-}
+// function Dashboard() {
+//   return <h2>Dashboard</h2>;
+// }
 
 
 export default App
