@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 export const StoryCard = ({story, openModal,modalState}) => {
   const classes = useStyles();
-// console.log(story)
+console.log(story)
 
   return (
       <div>
