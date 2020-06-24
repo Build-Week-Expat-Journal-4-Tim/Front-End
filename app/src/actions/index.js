@@ -7,10 +7,22 @@ export const UPDATE_STORY = 'UPDATE_STORY'
 export const DELETE_STORY = 'DELETE_STORY'
 
 export const CREATE_STORY_THEN = 'CREATE_STORY_THEN'
+export const GET_STORY_THEN =  'GET_STORY_THEN'
 export const UPDATE_STORY_THEN = 'UPDATE_STORY_THEN'
 export const DELETE_STORY_THEN = 'DELETE_STORY_THEN'
 export const OPEN_MODAL = 'OPEN_MODAL'
 export const CLOSE_MODAL = 'CLOSE_MODAL'
+
+
+export const handleGetStories = () => dispatch => {
+    dispatch({type: CREATE_STORY})
+    axiosWithAuth()
+        .get('/api/posts')
+            .then(res => {
+                dispatch({type: GET_STORY_THEN, payload: res.data})
+                console.log(res.data)
+            })
+}
 
 //needs to be finished
 export const handleCreateStory = (newStory) => dispatch => {
