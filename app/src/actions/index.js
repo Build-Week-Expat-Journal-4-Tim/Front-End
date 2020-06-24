@@ -16,7 +16,7 @@ export const CLOSE_MODAL = 'CLOSE_MODAL'
 export const handleCreateStory = (newStory) => dispatch => {
     dispatch({type: CREATE_STORY})
     axiosWithAuth()
-        .post('url', newStory)
+        .post('/api/posts', newStory)
             .then(res => {
                 console.log(res)
                 dispatch({type:CREATE_STORY_THEN, payload: newStory})
@@ -28,7 +28,7 @@ export const handleCreateStory = (newStory) => dispatch => {
 export const handleUpdateStory = (id) => dispatch => {
     // dispatch({type: UPDATE_STORY})
     axiosWithAuth()
-        .put(`url/api/${id}`)
+        .put(`/api/posts/${id}`)
             .then(res => {
                 console.log(res)
                 dispatch({type:UPDATE_STORY_THEN, payload:res })
@@ -40,7 +40,7 @@ export const handleUpdateStory = (id) => dispatch => {
 export const handleDeleteStory = (id) => dispatch => {
     // dispatch({type: UPDATE_STORY})
     axiosWithAuth()
-        .delete(`url/api/${id}`)
+        .delete(`/api/posts/${id}`)
             .then(res => {
                 console.log(res)
                 dispatch({type:DELETE_STORY_THEN, payload:res })

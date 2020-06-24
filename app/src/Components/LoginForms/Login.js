@@ -4,6 +4,8 @@ import { useForm, Controller } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles({
   root: {
@@ -31,27 +33,40 @@ export default function LoginForm() {
 
 
   const { register, handleSubmit, errors, reset } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
+  const history = useHistory()
 //equals anonymous function
   const onHandleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
 
-    setLogin({[name]:value})
+    setLogin({...login, [name]:value})
+  }
+
+  const handleLogin = e => {
+    // e.preventDefault()
+
+    axiosWithAuth()
+      .post('/api/auth/login', login)
+        .then(res => {
+          window.localStorage.setItem('token', res.data.token)
+          window.localStorage.setItem('userId', res.data.user.id)
+          history.push('/dashboard')
+          console.log(res)
+        })
+        .catch(err => console.log(err))
   }
 
   return (
     <div className="login-up-border">
     <h2>Login Form</h2>
 
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(handleLogin)}>
 
 
       <input
       value={login.email}
+      onChange={onHandleChange}
         type="text"
         placeholder="Email"
         name="email"
@@ -65,6 +80,7 @@ export default function LoginForm() {
       {errors.email && <p>{errors.email.message}</p>}
       <input
        value={login.password}
+       onChange={onHandleChange}
         type="password"
         placeholder="Password"
         name="password"
@@ -85,12 +101,7 @@ export default function LoginForm() {
         Submit
       </Button>
 
-      {/* <input type="submit"
-      //   onClick={(event) => {
-      //       event.preventDefault()
-      //     reset(defaultValues);
-      //   }}
-        /> */}
+    
     </form>
   </div>
     

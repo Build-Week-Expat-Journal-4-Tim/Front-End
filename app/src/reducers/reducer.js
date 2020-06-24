@@ -21,7 +21,28 @@ const initialState= {
         storyText: 'some text',
         location: 'USA',
         image: 'https://picsum.photos/200'
-    }],
+    },{
+        id:4,
+        title: 'some title4',
+        storyText: 'some text',
+        location: 'USA',
+        image: 'https://picsum.photos/200'
+    },
+    {
+        id:5,
+        title: 'some title5',
+        storyText: 'some text',
+        location: 'USA',
+        image: 'https://picsum.photos/200'
+    },
+    {
+        id:6,
+        title: 'some title6',
+        storyText: 'some text',
+        location: 'USA',
+        image: 'https://picsum.photos/200'
+    }
+        ],
     isFetchingData: false,
     modalState: false,
     storyid: null

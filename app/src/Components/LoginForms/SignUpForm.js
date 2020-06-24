@@ -1,10 +1,11 @@
 // Sign up Form
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import axiosWithAuth from "../../utils/axiosWithAuth";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -20,62 +21,61 @@ const useStyles = makeStyles({
   },
 });
 
-
-
 export default function SignUpForm() {
   const classes = useStyles();
 
   const defaultValues = {
     name: "",
-    email:"",
+    email: "",
     password: "",
   };
 
-  const [signUp, setSignUp] = useState(defaultValues) 
+  const [signUp, setSignUp] = useState(defaultValues);
 
-//equals anonymous function
-const onHandleChange = (e) => {
-  const name = e.target.name
-  const value = e.target.value
+  //equals anonymous function
+  const onHandleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
 
-  setSignUp({[name]:value})
-}
-
-  const { register, handleSubmit, errors, reset } = useForm();
-  const onSubmit = (data) => { 
-    console.log(data);
+    setSignUp({...signUp, [name]: value });
   };
 
-  const handleSignUp = e =>{
-    e.preventDefault()
-    
+  const { register, handleSubmit, errors, reset } = useForm();
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
+
+  const history = useHistory();
+  const handleSignUp = e => {
+    // e.preventDefault();
+
     const newUser = {
-      name: signUp.name,
-      password: signUp.password,
       email: signUp.email,
-   
-    }
-    
-    axiosWithAuth('/api/auth/register',newUser)
+      password: signUp.password,
+      firstName: signUp.name,
+     
+    };
 
-    .then(
-        res=>{console.log(res)}
-    )
+    axiosWithAuth()
+      .post("/api/auth/register", newUser)
 
-    .catch(err => console.log(err))
-    
-    }
+      .then((res) => {
+        // window.localStorage.setItem('token')
+        history.push('/login')
+        console.log(res);
+      })
+
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="sign-up-border">
       <h2>Sign Up Form</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-
-
-      <input
-        value={signUp.name}
-        onChange={onHandleChange}
+      <form onSubmit={handleSubmit(handleSignUp)}>
+        <input
+          value={signUp.name}
+          onChange={onHandleChange}
           type="text"
           placeholder="Full Name"
           name="name"
@@ -84,11 +84,11 @@ const onHandleChange = (e) => {
             minLength: { value: 1, message: "Name too short" },
           })}
         />
-           {errors.name && <p>{errors.name.message}</p>}
+        {errors.name && <p>{errors.name.message}</p>}
 
         <input
-         onChange={onHandleChange}
-         value={signUp.email}
+          onChange={onHandleChange}
+          value={signUp.email}
           type="text"
           placeholder="Email"
           name="email"
@@ -97,15 +97,11 @@ const onHandleChange = (e) => {
             minLength: { value: 1, message: "Email too short" },
           })}
         />
-        
-
-   
-
 
         {errors.email && <p>{errors.email.message}</p>}
         <input
-         onChange={onHandleChange}
-        value={signUp.password}
+          onChange={onHandleChange}
+          value={signUp.password}
           type="password"
           placeholder="Password"
           name="password"
@@ -117,7 +113,6 @@ const onHandleChange = (e) => {
         {errors.password && <p>{errors.password.message}</p>}
 
         <Button
-        
           type="submit"
           className={classes.root}
           variant="contained"
