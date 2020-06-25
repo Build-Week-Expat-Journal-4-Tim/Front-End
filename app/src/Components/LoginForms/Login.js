@@ -88,6 +88,7 @@ export default function LoginForm() {
       .then((res) => {
         window.localStorage.setItem("token", res.data.token);
         window.localStorage.setItem("userId", res.data.user.id);
+        window.localStorage.setItem('welcomeMessage', res.data.message)
         history.push("/dashboard");
         console.log(res);
       })

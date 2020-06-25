@@ -14,6 +14,7 @@ import { StoryModal } from './StoryModal';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    boxShadow: '1px 5px 15px 4px rgba(0,0,0,0.5)'
   },
 });
 
@@ -21,9 +22,14 @@ export const StoryCard = ({story, openModal,modalState}) => {
   const classes = useStyles();
 // console.log(story)
 
+
+
   return (
-      <div>
-        <Card className={classes.root}>
+      <div className='storyCardDiv'>
+        
+        <Card className={classes.root}
+        onClick={() => { 
+          openModal(story.id)}}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -31,8 +37,8 @@ export const StoryCard = ({story, openModal,modalState}) => {
             height="200"
             image={story.image}
             title="story-image"
-            onClick={() => { 
-              openModal(story.id)}}
+            onError='this.src=' 
+            
           />
 
       
@@ -40,6 +46,11 @@ export const StoryCard = ({story, openModal,modalState}) => {
             <Typography gutterBottom variant="h5" component="h2">
               {story.title}
             </Typography>
+            <Typography gutterBottom variant="h6" component="h2">
+            Location: {story.location}
+              
+            </Typography>
+            
           </CardContent>
         </CardActionArea>
        

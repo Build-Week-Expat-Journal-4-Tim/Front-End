@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { connect } from "react-redux";
-import { handleUpdateStory,closeCreateModal, closeModal } from "../../actions";
-
-import closeArrow from '../../imgs/closeArrow.svg'
-
+import { makeStory,closeCreateModal,closeModal } from "../../actions";
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -26,23 +23,22 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     height: "80%",
     margin: "0 auto",
-    // backgroundColor: theme.palette.background.paper,
-    backgroundColor: '#f5f6fa',
+    backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
 }));
 
- const StoryModalForm = ({ handleUpdateStory, createModalState,closeCreateModal, editStory, setEditStory, story, closeModal }) => {
+ const CreateStoryModal = ({ makeStory, createModalState,closeCreateModal,closeModal }) => {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
 
   const initialValues = {
-    description: story.description,
-    image: story.image,
-    location: story.location,
-    title: story.title,
+    description: "",
+    image: "",
+    location: "",
+    title: "",
   };
   const [newStory, setNewStory] = useState(initialValues);
 
@@ -53,49 +49,42 @@ const useStyles = makeStyles((theme) => ({
     setNewStory({ ...newStory, [name]: value });
   };
 
-  const handleGoBack = e => {
-    setEditStory(false)
+  function rand() {
+    let num = Math.round(Math.random())
+    let newNum = num + 1
+    return newNum
   }
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = window.localStorage.getItem("userId")
-    console.log(id)
+    const user_id = window.localStorage.getItem("userId")
+    console.log(user_id)
     const theStory = {
       description: newStory.description,
       image: newStory.image,
       location: newStory.location,
       title: newStory.title,
-      user_id: id,
+      user_id: user_id,
     };
-    console.log("making a new story");
-    handleUpdateStory(story.id, theStory);
+    console.log({theStory});
+   makeStory(theStory);
    setNewStory(initialValues)
-   setEditStory(false)
+   closeCreateModal()
   };
 
   return (
-    <div className='bigStoryModalFormDiv'>
-      
+    <div>
       <Modal
+        className="createModalStory"
         // key={story.id}
-        open={editStory}
+        open={createModalState}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        onClose={() => {
-          setEditStory(false)
-            closeModal()
-            
-        }}
+        onClose={() => closeCreateModal()}
       >
-       
         <div style={modalStyle} className={classes.paper}>
-        
-        <div className='storyModalFormText'>
-        <img className='closeArrow' src={closeArrow} onClick={handleGoBack}/>
-            {/* <h1>EDIT STORY FORM</h1> */}
           <form>
-           
+            <button onClick={handleSubmit}>Click me</button>
             <input
               type="text"
               name="title"
@@ -104,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
               value={newStory.title}
             />
 
-            <input 
+            <input
               type="text"
               name="location"
               placeholder="Location"
@@ -118,9 +107,6 @@ const useStyles = makeStyles((theme) => ({
               placeholder="Share your story"
               onChange={handleChanges}
               value={newStory.description}
-              rows={30}
-              cols={5}
-              
             />
 
             <input
@@ -131,13 +117,11 @@ const useStyles = makeStyles((theme) => ({
               value={newStory.image}
             />
 
-<button onClick={handleSubmit}>Submit</button>
+
           </form>
-        </div>
         </div>
       </Modal>
     </div>
-    
   );
 };
 
@@ -147,4 +131,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {closeModal, handleUpdateStory, closeCreateModal })(StoryModalForm);
+export default connect(mapStateToProps, { makeStory, closeCreateModal, closeModal })(CreateStoryModal);
