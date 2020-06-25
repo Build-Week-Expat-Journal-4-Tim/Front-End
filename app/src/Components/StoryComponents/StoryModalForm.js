@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { connect } from "react-redux";
-import { handleUpdateStory,closeCreateModal, closeModal } from "../../actions";
+import { handleUpdateStory, closeCreateModal, closeModal } from "../../actions";
 import Button from "@material-ui/core/Button";
 
-import closeArrow from '../../imgs/closeArrow.svg'
+import closeArrow from "../../imgs/closeArrow.svg";
 
 function getModalStyle() {
   const top = 50;
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     height: "80%",
     margin: "0 auto",
     // backgroundColor: theme.palette.background.paper,
-    backgroundColor: '#f5f6fa',
+    backgroundColor: "#f5f6fa",
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -47,7 +47,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- const StoryModalForm = ({ handleUpdateStory, createModalState,closeCreateModal, editStory, setEditStory, story, closeModal }) => {
+const StoryModalForm = ({
+  handleUpdateStory,
+  createModalState,
+  closeCreateModal,
+  editStory,
+  setEditStory,
+  story,
+  closeModal,
+}) => {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
 
@@ -66,14 +74,14 @@ const useStyles = makeStyles((theme) => ({
     setNewStory({ ...newStory, [name]: value });
   };
 
-  const handleGoBack = e => {
-    setEditStory(false)
-  }
-  
+  const handleGoBack = (e) => {
+    setEditStory(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = window.localStorage.getItem("userId")
-    console.log(id)
+    const id = window.localStorage.getItem("userId");
+    console.log(id);
     const theStory = {
       description: newStory.description,
       image: newStory.image,
@@ -83,68 +91,66 @@ const useStyles = makeStyles((theme) => ({
     };
     console.log("making a new story");
     handleUpdateStory(story.id, theStory);
-   setNewStory(initialValues)
-   setEditStory(false)
+    setNewStory(initialValues);
+    setEditStory(false);
   };
 
   return (
-    <div className='bigStoryModalFormDiv'>
-      
+    <div className="bigStoryModalFormDiv">
       <Modal
         // key={story.id}
         open={editStory}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         onClose={() => {
-          setEditStory(false)
-            closeModal()
-            
+          setEditStory(false);
+          closeModal();
         }}
       >
-       
         <div style={modalStyle} className={classes.paper}>
-        
-        <div className='storyModalFormText'>
-        <img className='closeArrow' src={closeArrow} onClick={handleGoBack}/>
+          <div className="storyModalFormText">
+            <img
+              className="closeArrow"
+              src={closeArrow}
+              onClick={handleGoBack}
+            />
             {/* <h1>EDIT STORY FORM</h1> */}
-          <form>
-           
-            <input
-              type="text"
-              name="title"
-              placeholder="Title"
-              onChange={handleChanges}
-              value={newStory.title}
-            />
+            <form>
+              <input
+                type="text"
+                name="title"
+                placeholder="Title"
+                onChange={handleChanges}
+                value={newStory.title}
+              />
 
-            <input 
-              type="text"
-              name="location"
-              placeholder="Location"
-              onChange={handleChanges}
-              value={newStory.location}
-            />
+              <input
+                type="text"
+                name="location"
+                placeholder="Location"
+                onChange={handleChanges}
+                value={newStory.location}
+              />
 
-            <textarea
-              type="text"
-              name="description"
-              placeholder="Share your story"
-              onChange={handleChanges}
-              value={newStory.description}
-              rows={30}
-              cols={5}
-              
-            />
+              <textarea
+                type="text"
+                name="description"
+                placeholder="Share your story"
+                onChange={handleChanges}
+                value={newStory.description}
+                rows={30}
+                cols={5}
+              />
 
-            <input
-              type="text"
-              name="image"
-              placeholder="image URL"
-              onChange={handleChanges}
-              value={newStory.image}
-            />
+              <input
+                type="text"
+                name="image"
+                placeholder="image URL"
+                onChange={handleChanges}
+                value={newStory.image}
+              />
 
-<Button
+              <Button
                 type="submit"
                 className={classes.submit}
                 variant="contained"
@@ -153,19 +159,22 @@ const useStyles = makeStyles((theme) => ({
               >
                 Submit
               </Button>
-          </form>
-        </div>
+            </form>
+          </div>
         </div>
       </Modal>
     </div>
-    
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    createModalState: state.createModalState
+    createModalState: state.createModalState,
   };
 };
 
-export default connect(mapStateToProps, {closeModal, handleUpdateStory, closeCreateModal })(StoryModalForm);
+export default connect(mapStateToProps, {
+  closeModal,
+  handleUpdateStory,
+  closeCreateModal,
+})(StoryModalForm);

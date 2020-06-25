@@ -69,12 +69,6 @@ const CreateStoryModal = ({
     setNewStory({ ...newStory, [name]: value });
   };
 
-  function rand() {
-    let num = Math.round(Math.random());
-    let newNum = num + 1;
-    return newNum;
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const user_id = window.localStorage.getItem("userId");

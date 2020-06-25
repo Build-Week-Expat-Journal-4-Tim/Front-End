@@ -90,7 +90,6 @@ export default function LoginForm() {
         window.localStorage.setItem("userId", res.data.user.id);
         window.localStorage.setItem('welcomeMessage', res.data.message)
         history.push("/dashboard");
-        console.log(res);
       })
       .catch((err) => console.log(err));
   };

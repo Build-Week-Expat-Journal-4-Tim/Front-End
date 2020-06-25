@@ -45,7 +45,6 @@ export const Dashboard = ({ openCreateModal }) => {
     window.localStorage.removeItem("welcomeMessage");
     history.push("/login");
   };
-  console.log(welcomeMessage);
 
   const classes = useStyles();
 
@@ -54,11 +53,9 @@ export const Dashboard = ({ openCreateModal }) => {
       <div className="dashboardText">
         <h1>Dashboard</h1>
         <h2>{welcomeMessage}</h2>
-       
       </div>
       <div className="dashboardDiv">
-
-      <Button
+        <Button
           type="submit"
           className={classes.submit}
           variant="contained"
@@ -77,9 +74,8 @@ export const Dashboard = ({ openCreateModal }) => {
         >
           Logout
         </Button>
-
       </div>
-      
+
       <CreateStoryModal />
 
       <StoryList />
