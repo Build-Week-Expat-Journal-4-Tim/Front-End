@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { connect } from "react-redux";
 import { makeStory,closeCreateModal,closeModal } from "../../actions";
+
+
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -23,14 +25,15 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     height: "80%",
     margin: "0 auto",
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#f5f6fa',
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
 }));
 
- const CreateStoryModal = ({ makeStory, createModalState,closeCreateModal,closeModal }) => {
+const CreateStoryModal = ({ makeStory, createModalState,closeCreateModal,closeModal }) => {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
 
@@ -73,18 +76,21 @@ const useStyles = makeStyles((theme) => ({
   };
 
   return (
-    <div>
+    <div className='bigStoryModalCreateFormDiv'>
+      
       <Modal
-        className="createModalStory"
         // key={story.id}
         open={createModalState}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         onClose={() => closeCreateModal()}
       >
+       
         <div style={modalStyle} className={classes.paper}>
+        
+        <div className='storyModalCreateFormText'>
           <form>
-            <button onClick={handleSubmit}>Click me</button>
+           
             <input
               type="text"
               name="title"
@@ -93,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
               value={newStory.title}
             />
 
-            <input
+            <input 
               type="text"
               name="location"
               placeholder="Location"
@@ -107,6 +113,9 @@ const useStyles = makeStyles((theme) => ({
               placeholder="Share your story"
               onChange={handleChanges}
               value={newStory.description}
+              rows={30}
+              cols={5}
+              
             />
 
             <input
@@ -117,11 +126,13 @@ const useStyles = makeStyles((theme) => ({
               value={newStory.image}
             />
 
-
+<button onClick={handleSubmit}>Submit</button>
           </form>
+        </div>
         </div>
       </Modal>
     </div>
+    
   );
 };
 

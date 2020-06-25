@@ -10,19 +10,21 @@ const StoryList = (props) => {
         props.handleGetStories()
     },[props.isFetchingData])
 
-
+const checkId = window.localStorage.getItem('userId')
 console.log(props.stories)
     return (
         <div className='storyListContainer'>
             <div className='stories'>
-                {props.stories.map(story => {
-                    return(
-                    <>
-                    {/* {console.log(props.stories)} */}
-                    <StoryCard story={story}/>
-                
-                    </>
-                    )
+                {props.stories.slice(0).reverse().map(story => {
+                    if(story.user_id == checkId) {
+                        return(
+                            <>
+                            <StoryCard story={story}/>
+                        
+                            </>
+                            )
+                    }
+                    
                     
                 })}
                 
