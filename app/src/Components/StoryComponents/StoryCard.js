@@ -25,6 +25,7 @@ export const StoryCard = ({story, openModal,modalState}) => {
 
 
   return (
+    <div className='bigStoryCardDiv'>
       <div className='storyCardDiv'>
         
         <Card className={classes.root}
@@ -37,7 +38,8 @@ export const StoryCard = ({story, openModal,modalState}) => {
             height="200"
             image={story.image}
             title="story-image"
-            onError='this.src=' 
+            className='storyCardImg'
+            // onError='this.src=' 
             
           />
 
@@ -56,7 +58,7 @@ export const StoryCard = ({story, openModal,modalState}) => {
        
       </Card>
     </div>
-  
+    </div>
   );
 }
 
