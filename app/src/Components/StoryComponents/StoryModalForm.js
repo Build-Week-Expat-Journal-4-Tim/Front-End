@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { connect } from "react-redux";
 import { handleUpdateStory,closeCreateModal, closeModal } from "../../actions";
+import Button from "@material-ui/core/Button";
 
 import closeArrow from '../../imgs/closeArrow.svg'
 
@@ -31,6 +32,18 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    border: 0,
+    borderRadius: 8,
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    color: "white",
+    width: "5rem",
+    height: "3rem",
+    margin: "3.5rem",
+    fontSize: "0.8rem",
   },
 }));
 
@@ -131,7 +144,15 @@ const useStyles = makeStyles((theme) => ({
               value={newStory.image}
             />
 
-<button onClick={handleSubmit}>Submit</button>
+<Button
+                type="submit"
+                className={classes.submit}
+                variant="contained"
+                color="primary"
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
           </form>
         </div>
         </div>
