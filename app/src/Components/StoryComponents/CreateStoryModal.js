@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { connect } from "react-redux";
-import { makeStory,closeCreateModal } from "../../actions";
+import { makeStory,closeCreateModal,closeModal } from "../../actions";
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- const CreateStoryModal = ({ makeStory, createModalState,closeCreateModal }) => {
+ const CreateStoryModal = ({ makeStory, createModalState,closeCreateModal,closeModal }) => {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
 
@@ -50,25 +50,26 @@ const useStyles = makeStyles((theme) => ({
   };
 
   function rand() {
-    return Math.round(Math.random())
+    let num = Math.round(Math.random())
+    let newNum = num + 1
+    return newNum
   }
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = window.localStorage.getItem("userId")
-    console.log(id)
+    const user_id = window.localStorage.getItem("userId")
+    console.log(user_id)
     const theStory = {
-      id:rand(),
       description: newStory.description,
       image: newStory.image,
       location: newStory.location,
       title: newStory.title,
-      user_id: id,
+      user_id: user_id,
     };
-    console.log("making a new story");
+    console.log({theStory});
    makeStory(theStory);
    setNewStory(initialValues)
-   
+   closeCreateModal()
   };
 
   return (
@@ -130,4 +131,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { makeStory, closeCreateModal })(CreateStoryModal);
+export default connect(mapStateToProps, { makeStory, closeCreateModal, closeModal })(CreateStoryModal);

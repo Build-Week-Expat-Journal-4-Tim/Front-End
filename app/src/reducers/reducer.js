@@ -16,7 +16,7 @@ export const reducer = ( state = initialState, action ) => {
         case DELETE_STORY:
             return {
                 ...state,
-                isFetchingData:true,
+                // isFetchingData:true,
             }
             case GET_STORY_THEN:
                 return{
@@ -34,14 +34,14 @@ export const reducer = ( state = initialState, action ) => {
                     //needs to be finished with data
                     ...state,
                     stories:[action.payload, ...state.stories],
-                    isFetchingData:false
+                    isFetchingData:!state.isFetchingData
                 }
             case DELETE_STORY_THEN:
 
                 return{
                     ...state,
                     stories:[...state.stories],
-                    isFetchingData:false
+                    isFetchingData:!state.isFetchingData
                 }
             case OPEN_MODAL:
                 console.log('open modal case happening', )

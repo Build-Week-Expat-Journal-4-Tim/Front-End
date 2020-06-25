@@ -23,7 +23,6 @@ export const StoryCard = ({story, openModal,modalState}) => {
 
   return (
       <div>
-     
         <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
