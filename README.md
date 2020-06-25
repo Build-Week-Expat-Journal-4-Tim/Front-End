@@ -7,17 +7,13 @@
 - **What problem does your app solve?**
     - **Allows for a more personal place for expats to upload and share their experiences**
     - **Travel journal**
-    - 
 - **Be as specific as possible; how does your app solve the problem?**
-    - 
     - Toggleable visibility
     - Create, Read, Update, or Delete stories/images
 - **What is the mission statement?**
     - To create a space to store memories for a lifetime!
     - Your virtual scrapbook
     - Uncrowd your phone, uncrowd your mind
-    - 
-    - 
 
 # **Features**
 
@@ -119,7 +115,7 @@
     - Vacationers
     - RVers
     - ...VRers?
-    - 
+ 
 - **What feedback have you gotten from potential users?**
     - 
     - They want VR...
