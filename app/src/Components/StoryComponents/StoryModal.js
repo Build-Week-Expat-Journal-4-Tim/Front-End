@@ -6,10 +6,6 @@ import { closeModal, handleDeleteStory } from "../../actions";
 import StoryModalForm from "./StoryModalForm";
 import Button from "@material-ui/core/Button";
 
-function rand() {
-  return Math.round(Math.random());
-}
-
 function getModalStyle() {
   const top = 50;
   const left = 50;
