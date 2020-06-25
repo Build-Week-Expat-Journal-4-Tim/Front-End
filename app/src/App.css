@@ -18,21 +18,18 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-
-  /* border: 1px solid red; */
 }
 ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  /* border: 1px solid red; */
   width: 100%;
 }
 ul li {
-  margin: 0 3%;
+  margin: 0 1%;
 }
 .link {
-  margin: 1rem 2rem 1rem 4rem;
+  margin: 0 2rem;
   text-decoration: none;
   color: white;
 }
@@ -63,7 +60,6 @@ ul li {
   border-bottom: 2px double white;
   border-top: 2px double white;
   margin-bottom: 2%;
-  /* padding: 1%; */
 }
 
 /*Story List Styles*/

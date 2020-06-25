@@ -8,15 +8,19 @@ export default function Nav (props) {
       <nav>
             
       <ul>
+      <li>
+          <a className="link" href="#">Home</a>
+        </li>
+      <li>
+          <Link className="link" to="/dashboard">Dashboard</Link>
+        </li>
         <li>
           <Link className="link" to="/">Sign Up </Link>
         </li>
         <li>
           <Link className="link" to="/login">Login</Link>
         </li>
-        <li>
-          <Link className="link" to="/dashboard">Dashboard</Link>
-        </li>
+        
       </ul>
     </nav>
     </header>
