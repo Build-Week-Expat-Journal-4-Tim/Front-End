@@ -318,6 +318,9 @@ ul li {
   .storyModalDiv img {
     width: 325px;
   }
+  .storyModalDiv p {
+    font-size: 1.1rem;
+  }
 
   /*Story Modal Styles*/
   .bigStoryModalFormDiv {
