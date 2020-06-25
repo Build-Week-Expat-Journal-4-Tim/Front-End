@@ -2,14 +2,15 @@ import React, {useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { connect } from 'react-redux'
-import { closeModal } from '../../actions'
+import { closeModal, handleDeleteStory } from '../../actions'
+import StoryModalForm from './StoryModalForm';
 function rand() {
-  return Math.round(Math.random() * 20) - 10;
+  return Math.round(Math.random())
 }
 
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+  const top = 50;
+  const left = 50 ;
 
   return {
     top: `${top}%`,
@@ -21,22 +22,35 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    position: 'absolute',
-    width: 400,
-    height:400,
+    display: "flex",
+    justifyContent: "center",
+    alignSelf: "center",
+    position: "absolute",
+    width: "80%",
+    height: "80%",
+    margin: "0 auto",
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
 }));
 
-export const  StoryModal = ({modalState, closeModal, stories,storyid}) => {
 
-  console.log(stories)
+
+export const  StoryModal = ({modalState, closeModal, stories,storyid, handleDeleteStory }) => {
+
+  const [editStory, setEditStory] = useState(false)
+  
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
+
+
+  const handleDelete = (id, e) => {
+    // e.preventDefault()
+    handleDeleteStory(id)
+  }
 
 return(
     <div>
@@ -49,15 +63,23 @@ return(
         open={modalState}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        onClose={() => closeModal()}
+        onClose={() => {
+          setEditStory(false)
+          closeModal()}}
       >
         <div style={modalStyle} className={classes.paper}>
         <h2>{console.log(modalState)}</h2>
       <h2 id="simple-modal-title">{story.title}</h2>
       <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+        {story.description}
       </p>
-      {/* <StoryModal /> */}
+      <img src={story.image}/>
+      <div>
+      <button onClick={() => setEditStory(true)}>Edit Form</button>
+      <button onClick={() => handleDelete(story.id)}> Delete Post</button>
+      </div>
+      {editStory && 
+      <StoryModalForm editStory={editStory} setEditStory={setEditStory} story={story}/>}
     </div>
       </Modal>
 
@@ -80,4 +102,4 @@ const mapStateToProps = state => {
     
 }
 
-export default connect(mapStateToProps, {closeModal})(StoryModal)
+export default connect(mapStateToProps, {closeModal, handleDeleteStory })(StoryModal)

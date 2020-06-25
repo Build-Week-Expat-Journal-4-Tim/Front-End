@@ -8,15 +8,17 @@ const StoryList = (props) => {
 
     useEffect(() => {
         props.handleGetStories()
-    },[])
+    },[props.isFetchingData])
 
+
+console.log(props.stories)
     return (
-        <div>
-            <div>
+        <div className='storyListContainer'>
+            <div className='stories'>
                 {props.stories.map(story => {
                     return(
                     <>
-                  
+                    {/* {console.log(props.stories)} */}
                     <StoryCard story={story}/>
                 
                     </>
@@ -32,7 +34,8 @@ const StoryList = (props) => {
 const mapStateToProps = state => {
     return {
         stories: state.stories,
-        modalState: state.modalState
+        modalState: state.modalState,
+        isFetchingData: state.isFetchingData
     }
 }
 

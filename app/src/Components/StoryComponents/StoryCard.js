@@ -19,11 +19,10 @@ const useStyles = makeStyles({
 
 export const StoryCard = ({story, openModal,modalState}) => {
   const classes = useStyles();
-console.log(story)
+// console.log(story)
 
   return (
       <div>
-     
         <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
@@ -35,6 +34,7 @@ console.log(story)
             onClick={() => { 
               openModal(story.id)}}
           />
+
       
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
