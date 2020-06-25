@@ -1,272 +1,262 @@
+body {
+  background-color: #7f8c8d;
+  font-family: "Noto Sans", sans-serif;
+}
 
- body{
-    background-color: #7f8c8d;
-    font-family: 'Noto Sans', sans-serif;
- }
- 
- .App {
+.App {
   text-align: center;
- 
 }
 
-.sign-up-border ,.login{
-  text-align:center;
+.sign-up-border,
+.login {
+  text-align: center;
 }
-
 
 /*Dashboard styles*/
 .dashboardText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.dashboardText h1{
-    margin: 0;
+.dashboardText h1 {
+  margin: 0;
 }
-.dashboardDiv{
-height: 30px;
-background-color: #bdc3c7;
-border-bottom: 2px double white;
-border-top: 2px double white;
-margin-bottom: 2%;
-/* padding: 1%; */
+.dashboardDiv {
+  height: 30px;
+  background-color: #bdc3c7;
+  border-bottom: 2px double white;
+  border-top: 2px double white;
+  margin-bottom: 2%;
+  /* padding: 1%; */
 }
 
 /*Story List Styles*/
 
-.storyListContainer{
-    margin: 0 auto;
-    width: 95%;
-    display: flex;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.storyListContainer {
+  margin: 0 auto;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.stories{
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-self: center;
-    display: flex;
-    width: 100%;
+.stories {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-self: center;
+  display: flex;
+  width: 100%;
 }
 
 /*Story Card Styles*/
-.bigStoryCardDiv{
-    max-width: 800px;
+.bigStoryCardDiv {
+  max-width: 800px;
 }
-.storyCardDiv{
-    margin: 2%;
-    /* width: 25%; */
-    min-width: 350px;
-    border: 1px solid red;
+.storyCardDiv {
+  margin: 2%;
+  /* width: 25%; */
+  min-width: 335px;
+  /* border: 1px solid red; */
 }
-
 
 /*Story Modal Styles*/
 
 .storyModalDiv {
-    display: flex;
-    flex-direction: column;
-    
+  display: flex;
+  flex-direction: column;
 }
 
-.storyModalDiv p{
-    margin: 0 1%;
-    line-height: 1.8rem;
-    white-space: pre-wrap;
-    font-size: 1.4rem;
-    
+.storyModalDiv p {
+  margin: 0 1%;
+  line-height: 1.8rem;
+  white-space: pre-wrap;
+  font-size: 1.4rem;
 }
 
-.storyModalDiv img{
-    align-self: center;
-   width: 800px;
-   max-height: 800px;
-   box-shadow: 1px 5px 15px 2px rgba(0,0,0,0.5);
-   margin: 3% 0 1% 0;
-   
+.storyModalDiv img {
+  align-self: center;
+  width: 800px;
+  max-height: 800px;
+  box-shadow: 1px 5px 15px 2px rgba(0, 0, 0, 0.5);
+  margin: 3% 0 1% 0;
 }
-.storyModalButtons{
-    margin-bottom: 1%;
+.storyModalButtons {
+  margin-bottom: 1%;
 }
 /*Create Story Modal Styles*/
 
-
-.bigStoryModalCreateFormDiv{
-    display: flex;
-    flex-direction: column;
+.bigStoryModalCreateFormDiv {
+  display: flex;
+  flex-direction: column;
 }
 
-.storyModalCreateFormText{
-    display: flex;
-    flex-direction: column;
-    align-self: center;
+.storyModalCreateFormText {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
-
-.storyModalCreateFormText form{
-    display: flex;
-    flex-direction: column;
-    width: 800px;
-    
+.storyModalCreateFormText form {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
 }
-.storyModalCreateFormText input{
-    display: flex;
-    flex-direction: column;
-    margin: 2% 0;
-    height: 35px;
-    width: 100%;
-    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.5);
+.storyModalCreateFormText input {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0;
+  height: 35px;
+  width: 100%;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 }
-.storyModalCreateFormText textarea{
-    display: flex;
-    flex-direction: column;
-    margin: 2% 0;
-    width: 100%;
-    resize: none;
-    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.5);
-
+.storyModalCreateFormText textarea {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0;
+  width: 100%;
+  resize: none;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 }
-.storyModalCreateFormText button{
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin: 2% 0;
-    width: 10%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-
-
+.storyModalCreateFormText button {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 2% 0;
+  width: 10%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 /*Story Modal Form Styles*/
 
-.bigStoryModalFormDiv{
-    display: flex;
-    flex-direction: column;
-    /* border: 1px solid green; */
+.bigStoryModalFormDiv {
+  display: flex;
+  flex-direction: column;
+
+  /* border: 1px solid green; */
 }
 
-.storyModalFormText{
-    display: flex;
-    flex-direction: column;
-    align-self: center;
+.storyModalFormText {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
-.storyModalFormText .closeArrow{
-    display: flex;
-    justify-content: flex-end;
-    display: flex;
-    width: 20px;
-    align-self: flex-end;
-    margin-bottom: .5%;
+.storyModalFormText .closeArrow {
+  display: flex;
+  justify-content: flex-end;
+  display: flex;
+  width: 20px;
+  align-self: flex-end;
+  margin-bottom: 0.5%;
 }
 
-.storyModalFormText .closeArrow:hover{
-    display: flex;
-    justify-content: flex-end;
-    display: flex;
-    width: 20px;
-    align-self: flex-end;
-    margin-bottom: .5%;
-    cursor: pointer;
+.storyModalFormText .closeArrow:hover {
+  display: flex;
+  justify-content: flex-end;
+  display: flex;
+  width: 20px;
+  align-self: flex-end;
+  margin-bottom: 0.5%;
+  cursor: pointer;
 }
 
-
-.storyModalFormText form{
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
-    width:800px ;
-    
+.storyModalFormText form {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  width: 800px;
 }
-.storyModalFormText input{
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
-    margin: 2% 0;
-    height: 35px;
-    width: 100%;
-    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.5);
+.storyModalFormText input {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0;
+  height: 35px;
+  width: 100%;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 }
-.storyModalFormText textarea{
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
-    margin: 2% 0;
-    /* height: 35px; */
-    width: 100%;
-    resize: none;
-    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.5);
-
+.storyModalFormText textarea {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0;
+  /* height: 35px; */
+  width: 100%;
+  resize: none;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 }
-.storyModalFormText button{
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin: 2% 0;
-    /* height: 35px; */
-    width: 10%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-
-
+.storyModalFormText button {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 2% 0;
+  /* height: 35px; */
+  width: 10%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 /*Media Queries*/
 
-@media(max-width: 800px) {
-    .storyModalDiv {
-        max-width: 600px;
-        
-    }
-    .storyModalDiv img{
-        width: 550px;
-        
-     }
-     .storyModalFormText form{
-        width: 600px;
-        
-    }
+@media (max-width: 800px) {
+  .storyModalDiv {
+    max-width: 600px;
+  }
+  .storyModalDiv img {
+    width: 550px;
+  }
+  .storyModalFormText form {
+    width: 600px;
+  }
+
+  /*Create Story Form Styles*/
+
+  .storyModalCreateFormText form {
+    width: 600px;
+  }
 }
 
 /*500 px media query*/
-@media(max-width: 500px) {
-    .storyModalDiv {
-        max-width: 350px;
-        
-    }
-    .storyModalDiv img{
-       width: 325px;
-       
-    }
+@media (max-width: 500px) {
+  .storyModalDiv {
+    max-width: 350px;
+  }
+  .storyModalDiv img {
+    width: 325px;
+  }
 
+  /*Story Modal Styles*/
+  .bigStoryModalFormDiv {
+    max-width: 350px;
+  }
 
-    /*Story Modal Styles*/
-    .bigStoryModalFormDiv{
-       max-width: 350px;
-    }
+  .storyModalFormText form {
+    width: 320px;
+    height: 600px;
+  }
 
-    .storyModalFormText form{
-        width: 350px;
-        
-    }
+  .storyModalFormText button {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 2% 0;
+    width: 20%;
+  }
 
-    .storyModalFormText button{
-        /* border: 1px solid red; */
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        margin: 2% 0;
-        width: 20%;
-        
-    
-    
-    }
+  /*Create Story Form Styles*/
 
+  .storyModalCreateFormText form {
+    width: 320px;
+    height: 600px;
+  }
+  .storyModalCreateFormText button {
+    width: 20%;
+  }
 }
