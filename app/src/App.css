@@ -1,4 +1,4 @@
-.App {
+ .App {
   text-align: center;
 }
 
@@ -12,6 +12,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+.sign-up-border ,.login{
+  text-align:center;
+}
+
 
 .App-header {
   background-color: #282c34;
