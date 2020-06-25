@@ -4,20 +4,22 @@ import {Link} from "react-router-dom";
 export default function Nav (props) {
 
     return (
+      <header className="navHeader">
     <nav>
           
     <ul>
       <li>
-        <Link to="/">Sign Up </Link>
+        <Link className="link" to="/">Sign Up </Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link className="link" to="/login">Login</Link>
       </li>
       <li>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link className="link" to="/dashboard">Dashboard</Link>
       </li>
     </ul>
   </nav>
+  </header>
     )
 
 }

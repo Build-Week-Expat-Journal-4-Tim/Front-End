@@ -260,3 +260,22 @@ body {
     width: 20%;
   }
 }
+
+
+.navHeader {
+    width: 100%;
+  }
+  .navHeader nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+  }
+   .link {
+    margin: 1rem 2rem 1rem 4rem;
+    text-decoration: none;
+    color: white;
+  }
+  .navHeader .link:hover {
+    color: white;
+  }
