@@ -9,7 +9,7 @@ export default function Nav (props) {
             
       <ul>
       <li>
-          <a className="link" href="#">Home</a>
+          <a className="link" href="https://stoic-snyder-289df1.netlify.app/">Home</a>
         </li>
       <li>
           <Link className="link" to="/dashboard">Dashboard</Link>
